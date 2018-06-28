@@ -84,8 +84,6 @@ let allFeeds = [
 		category: 'JavaScript',
 		url: 'https://javascriptweekly.com/rss/1a177hd2'
 	}
-
-
 ];
 
 /*
@@ -214,7 +212,7 @@ function loadFeed(id) {
                     //append each feed div to the doc frag
                     frag.appendChild(itemContainer);
 
-                }
+                } //end for loop
 
                 //append the doc frag of feeds to the div that holds all the feeds
                 itemsContainer.appendChild(frag);
@@ -222,7 +220,7 @@ function loadFeed(id) {
 
                 let titleElement = document.createElement('h1');
                 titleElement.innerText = data.feed.title;
-                //append the title and feeds to the main content div
+                //append the title and feeds to the main rssOutput content div
                 content.appendChild(titleElement);
                 content.appendChild(itemsContainer);
 
@@ -234,8 +232,8 @@ function loadFeed(id) {
         	errorElement.innerText = 'Sorry there was an error';
         	content.appendChild(errorElement);
         }
-    };
-}
+    }; //end onreadystatechange
+} //end load feed
 
 function init() {
     // Load the first feed we've defined (index of 0).
