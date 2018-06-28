@@ -253,19 +253,7 @@ function init() {
 
 /*
 	add a feed button to page for each feed in the allFeeds array
-	each button must load the proper feed
-	the code works as follows
-	1. create doc frag
-	2. get feedList ul element from html
-	3. for each feed create a li and button element
-	4. set data attribute on each button (tracks array)
-	5. insert innerText on buttons
-	6. append button as child to each li element
-	7. append li element to DocFrag (then increment feedId)
-	8. after loop append frag to feedList
-	9. set the event listener on the feed list (this way only 1 event listener)
-	10. add trap to event listener function so it only calls loadFeed() when button clicked
-	11. pass feedId to loadFeed()
+	each button loads the proper feed
 */
 (function() {
 	let feedId = 0;
@@ -299,15 +287,15 @@ function init() {
 	//group allFeeds according to category
 	let groupedAllFeeds = groupBy(allFeeds, 'category');
 
-	console.log(allFeeds);
 	//get and sort the categories
 	let allCategories = Object.keys(groupedAllFeeds);
 	allCategories.sort();
 
-
 	/*
 		for each category if the number of feeds is greater than 1
 		build the DOM
+		note: adding feedId to groupedAllFeeds adds feedId to allFeeds as well.
+		I am not sure why that happens (must have something to do with the reducer)
 	*/
 	for(let i = 0; i < allCategories.length; i++) {
 		if(groupedAllFeeds[allCategories[i]].length > 1) {
