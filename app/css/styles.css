@@ -1,0 +1,19 @@
+/**
+ *
+ * @authors ARogala
+ * @date    2018-06-28 07:37:19
+ * @version 1.0
+ */
+.testing {
+  width: 71.42857%; }
+
+body {
+  background: green; }
+
+.fourth-face {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }

@@ -1,0 +1,22 @@
+@charset "UTF-8";
+/**
+ *
+ * @authors ARogala
+ * @date    2018-06-28 07:37:19
+ * @version 1.0
+ */
+
+
+.testing {
+  width: percentage(5/7);
+}
+
+
+body {
+	background: green;
+}
+
+.fourth-face {
+  display: flex;
+  justify-content: space-between;
+}

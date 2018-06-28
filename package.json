@@ -1,0 +1,29 @@
+{
+  "name": "clientsidefeedreader",
+  "version": "1.0.0",
+  "description": "Client Side RSS Feed Reader App",
+  "main": "app/js/CSFeedy.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ARogala/ClientSideFeedReader.git"
+  },
+  "keywords": [
+    "Feed",
+    "Reader"
+  ],
+  "author": "Andrew Rogala",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ARogala/ClientSideFeedReader/issues"
+  },
+  "homepage": "https://github.com/ARogala/ClientSideFeedReader#readme",
+  "devDependencies": {
+    "browser-sync": "^2.24.5",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-sass": "^4.0.1"
+  }
+}
