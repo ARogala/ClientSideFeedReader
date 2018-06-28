@@ -7,16 +7,11 @@
  */
 
 
-.testing {
-  width: percentage(5/7);
+img {
+	height: auto;
+	max-width: 100%
 }
 
-
-body {
-	background: green;
-}
-
-.fourth-face {
-  display: flex;
-  justify-content: space-between;
+p img {
+	float: none;
 }
