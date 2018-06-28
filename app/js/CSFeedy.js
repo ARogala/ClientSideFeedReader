@@ -101,11 +101,19 @@ let allFeeds = [
 
 */
 function loadFeed(id) {
+	//process id to get url
+	let url;
+	for(let i=0; i<allFeeds.length; i++) {
+		if(allFeeds[i].id === parseInt(id)) {
+			url = allFeeds[i].url;
+		}
+	}
+
 	const content = document.getElementById('rssOutput');
 	content.innerHTML ='';
 	let xhr = new XMLHttpRequest();
 	let apiData = {
-        rss_url: allFeeds[id].url,
+        rss_url: url,
         //api_key: 'abc123yourapikey',
         count: 100,
         order_by: 'pubDate'
@@ -139,6 +147,7 @@ function loadFeed(id) {
 	xhr.onreadystatechange = function() {
         if (xhr.readyState == 4 && xhr.status == 200) {
             const data = JSON.parse(xhr.responseText);
+            console.log('data');
             console.log(data);
 			//this div holds all the feeds
    		 	const itemsContainer = document.createElement('div');
@@ -262,78 +271,107 @@ function init() {
 	let feedId = 0;
 	const frag = document.createDocumentFragment();
 	const feedList = document.getElementById('feedList');
-
-
-	let catID = 0;
-	function compair(a,b) {
-		if(a.category < b.category) {
-			return -1;
-		}
-		if(a.category > b.category) {
-			return 1;
-		}
-		else {
-			return 0;
-		}
+	//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce
+	function groupBy(objectArray, property) {
+		return objectArray.reduce(function (acc, obj) {
+			//remove case sensitivity
+			obj[property] = toTitleCase(obj[property]);
+			//store the category in key
+			let key = obj[property];
+			//if the accumulator object at key is undefined place empty array
+			if (!acc[key]) {
+			  acc[key] = [];
+			}
+			//push objects with the same key into their array
+			//return accumulator
+			acc[key].push(obj);
+			return acc;
+		}, {});
 	}
-	//sort the allFeeds obj array according to category
-	allFeeds.sort(compair);
+
+	//https://stackoverflow.com/questions/4878756/how-to-capitalize-first-letter-of-each-word-like-a-2-word-city
+	function toTitleCase(str) {
+		return str.replace(/\w\S*/g, function(txt){
+		    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+		});
+	}
+
+	//group allFeeds according to category
+	let groupedAllFeeds = groupBy(allFeeds, 'category');
+
 	console.log(allFeeds);
-	//add categoryIDs to feeds in the same category
-	for(let i = 0; i < allFeeds.length; i++) {
-		if(i+1 < allFeeds.length) {
-			if(allFeeds[i].category === allFeeds[i+1].category) {
-				allFeeds[i].categoryID = catID;
-				allFeeds[i+1].categoryID = catID;
+	//get and sort the categories
+	let allCategories = Object.keys(groupedAllFeeds);
+	allCategories.sort();
 
+
+	/*
+		for each category if the number of feeds is greater than 1
+		build the DOM
+	*/
+	for(let i = 0; i < allCategories.length; i++) {
+		if(groupedAllFeeds[allCategories[i]].length > 1) {
+			//build the dropdown li, button, and ul for each category
+			const dropDownList = document.createElement('li');
+			const dropDownButton = document.createElement('button');
+			const dropDownUL = document.createElement('ul');
+			dropDownButton.setAttribute('aria-haspopup', true);
+			dropDownButton.innerText = allCategories[i];
+			dropDownUL.setAttribute('aria-label', 'submenu');
+			dropDownUL.setAttribute('class', 'dropDown');
+
+			dropDownList.appendChild(dropDownButton);
+			dropDownList.appendChild(dropDownUL);
+			//for each feed in the category build the drop down buttons
+			for(let j = 0; j < groupedAllFeeds[allCategories[i]].length; j++) {
+				groupedAllFeeds[allCategories[i]][j].id = feedId;
+				const dropDownListItem = document.createElement('li');
+				const dropDownButtonItem = document.createElement('button');
+				dropDownButtonItem.setAttribute('data-id', feedId);
+				dropDownButtonItem.innerText = groupedAllFeeds[allCategories[i]][j].name;
+				dropDownListItem.appendChild(dropDownButtonItem);
+				dropDownUL.appendChild(dropDownListItem);
+
+				feedId++;
 			}
-			else if(allFeeds[i].categoryID != undefined) {
-				catID++;
-			}
+			frag.appendChild(dropDownList);
 		}
+
 	}
-	let categorizedFeeds = [];
-	let singleFeeds = [];
-	//separate feeds with multiple categories from those alone
-	for(let i =0; i < allFeeds.length; i++) {
-		if(allFeeds[i].categoryID === undefined) {
-			singleFeeds.push(allFeeds[i]);
-		}
-		else {
-			categorizedFeeds.push(allFeeds[i]);
+
+	//build the DOM for single feeds
+	for(let i = 0; i < allCategories.length; i++) {
+
+		if(groupedAllFeeds[allCategories[i]].length === 1) {
+			/*
+			build the DOM for single feeds
+			1. for each single feed create a li and button element
+			2. set data attribute on each button (tracks array)
+			3. insert innerText on buttons
+			4. append button as child to each li element
+			5. append li element to DocFrag (then increment feedId)
+			6. after loop append frag to feedList
+			*/
+
+			groupedAllFeeds[allCategories[i]][0].id = feedId;
+			const newListElement = document.createElement('li');
+			const newButtonElement = document.createElement('button');
+			newButtonElement.setAttribute('data-id', feedId);
+			newButtonElement.innerText = groupedAllFeeds[allCategories[i]][0].name;
+			newListElement.appendChild(newButtonElement);
+			frag.appendChild(newListElement);
+			feedId++;
 		}
 	}
 
-	console.log(categorizedFeeds);
-	console.log(singleFeeds);
-
-
-	//further serpareate each category into its own array
-	for(let i =0; i <= catID; i++) {
-		this['category'+i]=[];
-		for(let j = 0; j < categorizedFeeds.length; j++) {
-			if(categorizedFeeds[j].categoryID === i) {
-				this['category'+i].push(categorizedFeeds[j])
-			}
-		}
-	}
-// console.log(category0);
-// console.log(category1);
-// console.log(category2);
-// console.log(category3);
-
-	for(let feed of allFeeds) {
-		feed.id = feedId;
-		const newListElement = document.createElement('li');
-		const newButtonElement = document.createElement('button');
-		newButtonElement.setAttribute('data-id', feedId);
-		newButtonElement.innerText = feed.name;
-		newListElement.appendChild(newButtonElement);
-		frag.appendChild(newListElement);
-		feedId++;
-	}
+	//attached the frag to the document
 	feedList.appendChild(frag);
 
+	/*
+		1. set the event listener on the feed list (this way only 1 event listener)
+		2. add trap to event listener function so it only calls loadFeed() when button clicked
+		3. pass feedId to loadFeed()
+	*/
 	feedList.addEventListener('click', function(e) {
 		//console.log(e.target.tagName);
 		if(e.target.tagName === 'BUTTON') {
