@@ -37,9 +37,10 @@ function saveData() {
 	allFeeds[newFeedIndex].name = feedName;
 	allFeeds[newFeedIndex].category = feedCategory;
 	allFeeds[newFeedIndex].url = feedURL;
-
-
+	//save new feed array locally
 	localStorage.setItem('allFeeds', JSON.stringify(allFeeds));
+	//reloading the window will run sort algorithm adding a new button
+	//letting the user know feed saved successfully
 	window.location.reload(true);
 
 }
