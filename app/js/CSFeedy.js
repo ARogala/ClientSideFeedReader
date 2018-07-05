@@ -5,86 +5,44 @@
  * @version 1.0
  */
 
-//array of rss objects
-let allFeeds = [
-	{
-		name: 'Nasa Image of the Day',
-		category: 'Science',
-		url:  'http://www.nasa.gov/rss/dyn/image_of_the_day.rss'
-	},
+//array of rss objects from local storage or blank array is no feeds saved yet
+let allFeeds = JSON.parse(localStorage.getItem('allFeeds') || '[]');
 
-	{
-		name: 'CSS-Tricks',
-		category: 'WebDevelopment',
-		url: 'http://css-tricks.com/feed/'
-	},
+const formElement = document.getElementById('feedData');
+let feedName, feedCategory, feedURL;
+//when the Add Feed button in clicked get the inputs and save the data
+formElement.addEventListener('submit', function(e) {
+	e.preventDefault();
+	getInputs();
+	saveData();
+});
 
-	{
-		name: 'HTML5 Rocks',
-		category: 'WebDevelopment',
-		url: 'http://feeds.feedburner.com/html5rocks'
-	},
+//reset the page when cancel button pressed
+formElement.addEventListener('reset', function(){
+	window.location.reload(true);
+});
 
-	{
-		name: 'David Kleinert Photography',
-		category: 'Photography',
-		url: 'http://www.davidkphotography.com/index.php?x=atom'
-	},
+function getInputs() {
+	feedName     = formElement.elements[1].value;
+	feedCategory = formElement.elements[2].value;
+	feedURL      = formElement.elements[3].value;
+}
 
-	{
-		name: 'Reddit Video',
-		category: 'Reddit',
-		url: 'http://www.reddit.com/r/videos/.rss'
-	},
+function saveData() {
+	//push a new empty object on the all feeds array
+	allFeeds.push({});
 
-	{
-		name: 'Outdoor Photographer',
-		category: 'Photography',
-		url: 'https://www.outdoorphotographer.com/feed/'
-	},
+	const newFeedIndex = allFeeds.length - 1;
+	//add new feed data to obj in feeds array
+	allFeeds[newFeedIndex].name = feedName;
+	allFeeds[newFeedIndex].category = feedCategory;
+	allFeeds[newFeedIndex].url = feedURL;
 
-	{
-		name: 'Shutterstock',
-		category: 'Photography',
-		url: 'https://www.petapixel.com/feed'
-	},
 
-	{
-		name: 'Smithsonian Mag',
-		category: 'Smithsonian',
-		url: 'https://www.smithsonianmag.com/rss/multimedia/'
-	},
+	localStorage.setItem('allFeeds', JSON.stringify(allFeeds));
+	window.location.reload(true);
 
-	{
-		name: 'Smithsonian Food',
-		category: 'Smithsonian',
-		url: 'https://www.smithsonianmag.com/rss/food/'
-	},
-
-	{
-		name: 'Wired',
-		category: 'Technology',
-		url: 'http://www.wired.com/feed'
-	},
-
-	{
-		name: 'Smithsonian Videos',
-		category: 'Smithsonian',
-		url: 'https://www.smithsonianmag.com/rss/videos/'
-	},
-
-	{
-		name: 'Reddit Home',
-		category: 'Reddit',
-		url: 'https://www.reddit.com/.rss'
-	},
-
-	{
-		name: 'JS Weekly',
-		category: 'JavaScript',
-		url: 'https://javascriptweekly.com/rss/1a177hd2'
-	}
-];
+}
 
 /*
 	function to load feeds

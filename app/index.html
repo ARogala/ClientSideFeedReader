@@ -9,6 +9,28 @@
 		<script type="text/javascript" src="js/CSFeedy.js" defer></script>
 	</head>
 	<body>
+		<form id="feedData">
+			<fieldset>
+				<legend>Enter RSS feed name, category, and url</legend>
+				<div>
+					<label for="name">Feed Name:</label>
+					<input type="text" id="name" name="feed_name" required>
+				</div>
+				<div>
+					<label for="category">Feed Category:</label>
+					<input type="text" id="category" name="feed_category" required>
+				</div>
+				<div>
+					<label for="url">Feed URL:</label>
+					<input type="url" id="url" name="feed_url" placeholder="http://example.com/feed" required>
+				</div>
+
+				<div class="btnContainer">
+					<button type="submit" value="Submit" class="btn">Add Feed</button>
+					<button type="reset" value="Reset" class="btn">Cancel</button>
+				</div>
+			</fieldset>
+		</form>
 		<div class="sideMenu">
 			<ul id="feedList">
 
