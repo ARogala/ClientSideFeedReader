@@ -111,6 +111,21 @@ function restoreFeeds(evt) {
 
 //backup code ends
 
+
+//delete a feed
+function deleteSingleFeed(id) {
+	console.log(id);
+	console.log(allFeeds);
+	//loop through allFeeds array delete object with matching id
+	//set localStorage equal to the modified allFeeds array
+	for(let i = 0; i < allFeeds.length; i++) {
+		if(allFeeds[i].id === parseInt(id)) {
+			allFeeds.splice(i,1);
+			localStorage.setItem('allFeeds', JSON.stringify(allFeeds));
+			window.location.reload(true);
+		}
+	}
+}
 /*
 	function to load feeds
 	Note: The readyState property holds the status of the XMLHttpRequest.
@@ -340,9 +355,16 @@ function init() {
 				groupedAllFeeds[allCategories[i]][j].id = feedId;
 				const dropDownListItem = document.createElement('li');
 				const dropDownButtonItem = document.createElement('button');
+				const deleteFeedButton = document.createElement('button');
+
 				dropDownButtonItem.setAttribute('data-id', feedId);
+				dropDownButtonItem.setAttribute('class', 'feedBtn');
+				deleteFeedButton.setAttribute('data-id', feedId);
+				deleteFeedButton.setAttribute('class', 'deleteBtn');
 				dropDownButtonItem.innerText = groupedAllFeeds[allCategories[i]][j].name;
+				deleteFeedButton.innerText = 'Delete This Feed';
 				dropDownListItem.appendChild(dropDownButtonItem);
+				dropDownListItem.appendChild(deleteFeedButton);
 				dropDownUL.appendChild(dropDownListItem);
 
 				feedId++;
@@ -369,9 +391,18 @@ function init() {
 			groupedAllFeeds[allCategories[i]][0].id = feedId;
 			const newListElement = document.createElement('li');
 			const newButtonElement = document.createElement('button');
+			const deleteFeedButton = document.createElement('button');
+
 			newButtonElement.setAttribute('data-id', feedId);
+			newButtonElement.setAttribute('class', 'feedBtn');
+			deleteFeedButton.setAttribute('data-id', feedId);
+			deleteFeedButton.setAttribute('class', 'deleteBtn');
+
 			newButtonElement.innerText = groupedAllFeeds[allCategories[i]][0].name;
+			deleteFeedButton.innerText ='Delete This Feed';
+
 			newListElement.appendChild(newButtonElement);
+			newListElement.appendChild(deleteFeedButton);
 			frag.appendChild(newListElement);
 			feedId++;
 		}
@@ -387,12 +418,14 @@ function init() {
 	*/
 	feedList.addEventListener('click', function(e) {
 		//console.log(e.target.tagName);
-		if(e.target.tagName === 'BUTTON') {
+		//console.log(e.target.className);
+		if(e.target.tagName === 'BUTTON' && e.target.className === 'feedBtn') {
 			loadFeed(e.target.dataset.id);
 		}
-
+		else if(e.target.tagName === 'BUTTON' && e.target.className === 'deleteBtn') {
+			deleteSingleFeed(e.target.dataset.id);
+		}
 	});
-
 })();
 
 
