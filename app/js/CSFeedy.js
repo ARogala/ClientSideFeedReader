@@ -102,6 +102,7 @@ function restoreFeeds(evt) {
 	    reader.onload = function(event) {
 	    	allFeeds = JSON.parse(event.target.result);
 	    	localStorage.setItem('allFeeds', JSON.stringify(allFeeds));
+	    	window.location.reload(true);
 		}
     }
     else {
