@@ -41,17 +41,10 @@ function saveData() {
 }
 
 //Backup code starts here
-document.getElementById('backUpFile').addEventListener('change', restoreFeeds);
 
+//add event listeners to backup and restore buttons
+document.getElementById('backUpFile').addEventListener('change', restoreFeeds);
 document.getElementById('backUpBtn').addEventListener('click', backUpFeeds);
-// Check for the various File API support.
-if (window.File && window.FileReader && window.FileList && window.Blob && window.URL) {
-  // Great success! All the File APIs are supported.
-  console.log('all APIs supported');
-}
-else {
-  alert('The File APIs are not fully supported in this browser. Please use the latest version of Chrome or FireFox');
-}
 
 /*
 	store the text to backup as a string in the backUpFileText variable
@@ -413,6 +406,15 @@ function buildFeedButtons() {
 } //end buildFeedButtons
 
 (function() {
+
+	// Check for the various File API support.
+	if (window.File && window.FileReader && window.FileList && window.Blob && window.URL) {
+	  // Great success! All the File APIs are supported.
+	  console.log('All APIs supported');
+	}
+	else {
+	  alert('The File APIs are not fully supported in this browser. Please use the latest version of Chrome or Firefox');
+	}
 
 	buildFeedButtons();
 
