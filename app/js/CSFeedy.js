@@ -160,7 +160,7 @@ function loadFeed(id) {
         order_by: 'pubDate'
     };
 
-    if(apiData.api_key != undefined) {
+    if(('api_key' in apiData) === true) {
     	xhr.open(
 	        'GET',
 	        'https://api.rss2json.com/v1/api.json?rss_url='+apiData.rss_url+'&api_key='+
@@ -168,7 +168,7 @@ function loadFeed(id) {
 	        true
     	);
     }
-    else if(apiData.api_key === undefined) {
+    else if(('api_key' in apiData) === false) {
     	xhr.open(
 	        'GET',
 	        'https://api.rss2json.com/v1/api.json?rss_url='+apiData.rss_url,
