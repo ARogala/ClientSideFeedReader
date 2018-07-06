@@ -4,7 +4,7 @@
  * @date    2018-06-28 06:10:40
  * @version 1.0
  */
-
+'use strict';
 //array of rss objects from local storage or blank array is no feeds saved yet
 let allFeeds = JSON.parse(localStorage.getItem('allFeeds') || '[]');
 
