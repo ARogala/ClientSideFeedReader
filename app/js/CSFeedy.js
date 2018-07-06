@@ -17,11 +17,6 @@ formElement.addEventListener('submit', function(e) {
 	saveData();
 });
 
-//reset the page when cancel button pressed
-formElement.addEventListener('reset', function(){
-	window.location.reload(true);
-});
-
 function getInputs() {
 	feedName     = formElement.elements[1].value;
 	feedCategory = formElement.elements[2].value;
@@ -39,9 +34,9 @@ function saveData() {
 	allFeeds[newFeedIndex].url = feedURL;
 	//save new feed array locally
 	localStorage.setItem('allFeeds', JSON.stringify(allFeeds));
-	//reloading the window will run sort algorithm adding a new button
-	//letting the user know feed saved successfully
-	window.location.reload(true);
+	//build the feed buttons and reset the form
+	buildFeedButtons();
+	formElement.reset();
 
 }
 
@@ -102,7 +97,9 @@ function restoreFeeds(evt) {
 	    reader.onload = function(event) {
 	    	allFeeds = JSON.parse(event.target.result);
 	    	localStorage.setItem('allFeeds', JSON.stringify(allFeeds));
-	    	window.location.reload(true);
+	    	//build the feed buttons and reset the form
+	    	buildFeedButtons();
+	    	formElement.reset();
 		}
     }
     else {
@@ -122,10 +119,10 @@ function deleteSingleFeed(id) {
 	for(let i = 0; i < allFeeds.length; i++) {
 		if(allFeeds[i].id === parseInt(id)) {
 			allFeeds.splice(i,1);
-			localStorage.setItem('allFeeds', JSON.stringify(allFeeds));
-			window.location.reload(true);
 		}
 	}
+	localStorage.setItem('allFeeds', JSON.stringify(allFeeds));
+	buildFeedButtons();
 }
 /*
 	function to load feeds
@@ -296,10 +293,12 @@ function init() {
 	add a feed button to page for each feed in the allFeeds array
 	each button loads the proper feed
 */
-(function() {
+function buildFeedButtons() {
 	let feedId = 0;
 	const frag = document.createDocumentFragment();
 	const feedList = document.getElementById('feedList');
+	//clear the previous feed list
+	feedList.innerHTML = '';
 	//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce
 	function groupBy(objectArray, property) {
 		return objectArray.reduce(function (acc, obj) {
@@ -411,6 +410,11 @@ function init() {
 
 	//attached the frag to the document
 	feedList.appendChild(frag);
+} //end buildFeedButtons
+
+(function() {
+
+	buildFeedButtons();
 
 	/*
 		1. set the event listener on the feed list (this way only 1 event listener)
@@ -427,6 +431,7 @@ function init() {
 			deleteSingleFeed(e.target.dataset.id);
 		}
 	});
+
 })();
 
 
