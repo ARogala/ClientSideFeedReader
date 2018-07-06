@@ -188,8 +188,8 @@ function loadFeed(id) {
             	//for each feed (item) in the JSON object build its div
                 for(let i = 0; i < data.items.length; ++i ) {
                     let item = data.items[i];
-                    //this div holds the individual feeds
-                    let itemContainer          = document.createElement('div');
+                    //this article tag holds the individual feeds
+                    let itemContainer          = document.createElement('article');
                     let itemTitleElement       = document.createElement('h2');
                     let itemLinkElement        = document.createElement('a');
                     let itemPubDate            = document.createElement('time');
