@@ -105,8 +105,6 @@ function restoreFeeds(evt) {
 
 //delete a feed
 function deleteSingleFeed(id) {
-	console.log(id);
-	console.log(allFeeds);
 	//loop through allFeeds array delete object with matching id
 	//set localStorage equal to the modified allFeeds array
 	for(let i = 0; i < allFeeds.length; i++) {
@@ -178,8 +176,6 @@ function loadFeed(id) {
 	xhr.onreadystatechange = function() {
         if (xhr.readyState == 4 && xhr.status == 200) {
             const data = JSON.parse(xhr.responseText);
-            console.log('data');
-            console.log(data);
 			//this div holds all the feeds
    		 	const itemsContainer = document.createElement('div');
             const frag = document.createDocumentFragment();
