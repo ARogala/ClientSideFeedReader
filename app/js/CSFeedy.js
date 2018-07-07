@@ -332,10 +332,12 @@ function buildFeedButtons() {
 			const dropDownList = document.createElement('li');
 			const dropDownButton = document.createElement('button');
 			const dropDownUL = document.createElement('ul');
+			dropDownList.setAttribute('class', 'dropDownLI');
 			dropDownButton.setAttribute('aria-haspopup', true);
+			dropDownButton.setAttribute('class', 'dropDownBtn');
 			dropDownButton.innerText = allCategories[i];
 			dropDownUL.setAttribute('aria-label', 'submenu');
-			dropDownUL.setAttribute('class', 'dropDown');
+			dropDownUL.setAttribute('class', 'dropDownUL');
 
 			dropDownList.appendChild(dropDownButton);
 			dropDownList.appendChild(dropDownUL);
@@ -346,6 +348,7 @@ function buildFeedButtons() {
 				const dropDownButtonItem = document.createElement('button');
 				const deleteFeedButton = document.createElement('button');
 
+				dropDownListItem.setAttribute('class', 'feedLI');
 				dropDownButtonItem.setAttribute('data-id', feedId);
 				dropDownButtonItem.setAttribute('class', 'feedBtn');
 				deleteFeedButton.setAttribute('data-id', feedId);
@@ -382,6 +385,7 @@ function buildFeedButtons() {
 			const newButtonElement = document.createElement('button');
 			const deleteFeedButton = document.createElement('button');
 
+			newListElement.setAttribute('class', 'feedLI');
 			newButtonElement.setAttribute('data-id', feedId);
 			newButtonElement.setAttribute('class', 'feedBtn');
 			deleteFeedButton.setAttribute('data-id', feedId);
