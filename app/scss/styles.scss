@@ -33,12 +33,15 @@ body {
 body {
 	font-family: Times, Arial, serif;
 	font-size: 1.5rem;
+	background-color: #BFF8C1;
+
 
 }
  /*style image injected by feed json data*/
 img {
 	height: auto;
 	max-width: 100%
+
 }
 
 p img {
@@ -62,13 +65,34 @@ button:hover {
 	cursor: pointer;
 }
 
+.flexContainer {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.sideMenu {
+
+
+}
+/*form styles*/
+.feedForm {
+
+	width: 30vw;
+}
+
+#rssOutput {
+	order: 1;
+	width: 60vw;
+}
+
 /*dropdown sidebar menu styles*/
 
 /*select all nav UL elements*/
 .feedListUL, .dropDownUL {
 	width: 30vw;
 	list-style: none;
-	background-color: grey;
+	background-color: #1797B5;
+	/*#9AE6F7*/
 }
 
 /*position the drop down list item relative to the
@@ -104,11 +128,11 @@ button:hover {
 }
 
 .dropDownLI:hover, .dropDownLI:focus-within {
-	background-color: green;
+	background-color: #CCCCCC;
 }
 
 .dropDownBtn:hover, .dropDownBtn:focus {
-	background-color: green;
+	background-color: #CCCCCC;
 }
 
 .feedBtn {
@@ -118,7 +142,7 @@ button:hover {
 }
 
 .feedBtn:hover, .feedBtn:focus {
-	background-color: green;
+	background-color: #CCCCCC;
 }
 
 .deleteBtn {
@@ -129,7 +153,7 @@ button:hover {
 }
 
 .deleteBtn:hover, .deleteBtn:focus {
-	background-color: green;
+	background-color: #CCCCCC;
 }
 
 

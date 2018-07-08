@@ -9,43 +9,47 @@
 		<script type="text/javascript" src="js/CSFeedy.js" defer></script>
 	</head>
 	<body>
-		<form id="feedData">
-			<fieldset>
-				<legend>Enter RSS feed name, category, and url</legend>
-				<div>
-					<label for="name">Feed Name:</label>
-					<input type="text" id="name" name="feed_name" required>
-				</div>
-				<div>
-					<label for="category">Feed Category:</label>
-					<input type="text" id="category" name="feed_category" required>
-				</div>
-				<div>
-					<label for="url">Feed URL:</label>
-					<input type="url" id="url" name="feed_url" placeholder="http://example.com/feed" required>
-				</div>
+		<h1 class="title">CSFeedy A 100% Client Side Feed Reader</h1>
+		<div class="flexContainer">
+			<div class="sideBar">
+				<nav role="navigation" class="sideMenu">
+					<ul id="feedList" class="feedListUL">
 
-				<div class="btnContainer">
-					<button type="submit" value="Submit" class="btn">Add Feed</button>
-					<button type="reset" value="Reset" class="btn">Cancel</button>
-				</div>
-			</fieldset>
-			<fieldset>
-				<legend>Back Up Your Feeds</legend>
-				<label for="backUpBtn">Click button below to backup your feeds</label>
-				<button type="button" id="backUpBtn" download>Download Backup</button>
-				<label for="backUpFile">Select the CSFeedyBackUp.txt file</label>
-				<input type="file" id="backUpFile" name="feeds_backup" accept=".txt">
-			</fieldset>
-		</form>
+					</ul>
+				</nav>
+				<form id="feedData" class="feedForm">
+					<fieldset>
+						<legend>Enter RSS feed name, category, and url</legend>
+						<div>
+							<label for="name">Feed Name:</label>
+							<input type="text" id="name" name="feed_name" required>
+						</div>
+						<div>
+							<label for="category">Feed Category:</label>
+							<input type="text" id="category" name="feed_category" required>
+						</div>
+						<div>
+							<label for="url">Feed URL:</label>
+							<input type="url" id="url" name="feed_url" placeholder="http://example.com/feed" required>
+						</div>
 
-		<nav role="navigation" class="sideMenu">
-			<ul id="feedList" class="feedListUL">
+						<div class="btnContainer">
+							<button type="submit" value="Submit" class="btn">Add Feed</button>
+							<button type="reset" value="Reset" class="btn">Cancel</button>
+						</div>
+					</fieldset>
+					<fieldset>
+						<legend>Back Up Your Feeds</legend>
+						<label for="backUpBtn">Click button below to backup your feeds</label>
+						<button type="button" id="backUpBtn" download>Download Backup</button>
+						<label for="backUpFile">Select the CSFeedyBackUp.txt file</label>
+						<input type="file" id="backUpFile" name="feeds_backup" accept=".txt">
+					</fieldset>
+				</form>
+			</div>
+			<div id="rssOutput">
 
-			</ul>
-		</nav>
-		<div id="rssOutput">
-
+			</div>
 		</div>
 	</body>
 	<script type="text/javascript"> document.addEventListener('click', function(e) { if(document.activeElement.toString() == '[object HTMLButtonElement]'){ document.activeElement.blur(); } });</script>

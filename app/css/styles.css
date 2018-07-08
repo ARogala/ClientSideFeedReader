@@ -29,7 +29,8 @@ body {
 
 body {
   font-family: Times, Arial, serif;
-  font-size: 1.5rem; }
+  font-size: 1.5rem;
+  background-color: #BFF8C1; }
 
 /*style image injected by feed json data*/
 img {
@@ -54,12 +55,30 @@ button:focus {
 button:hover {
   cursor: pointer; }
 
+.flexContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap; }
+
+/*form styles*/
+.feedForm {
+  width: 30vw; }
+
+#rssOutput {
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+  width: 60vw; }
+
 /*dropdown sidebar menu styles*/
 /*select all nav UL elements*/
 .feedListUL, .dropDownUL {
   width: 30vw;
   list-style: none;
-  background-color: grey; }
+  background-color: #1797B5;
+  /*#9AE6F7*/ }
 
 /*position the drop down list item relative to the
   drop down unordered list so we can make the UL pull out
@@ -91,10 +110,10 @@ button:hover {
   text-align: center; }
 
 .dropDownLI:hover, .dropDownLI:focus-within {
-  background-color: green; }
+  background-color: #CCCCCC; }
 
 .dropDownBtn:hover, .dropDownBtn:focus {
-  background-color: green; }
+  background-color: #CCCCCC; }
 
 .feedBtn {
   width: 75%;
@@ -102,7 +121,7 @@ button:hover {
   text-align: center; }
 
 .feedBtn:hover, .feedBtn:focus {
-  background-color: green; }
+  background-color: #CCCCCC; }
 
 .deleteBtn {
   width: 25%;
@@ -111,4 +130,4 @@ button:hover {
   padding: 10px; }
 
 .deleteBtn:hover, .deleteBtn:focus {
-  background-color: green; }
+  background-color: #CCCCCC; }
