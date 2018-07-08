@@ -6,7 +6,36 @@
  * @version 1.0
  */
 
+ /*apply a browser reset * only selects element so must select psudo elemts as well
+apply border-box to make all elements account for any border and padding in the values
+you specify for an element's width and height. If you set an element's width to 100 pixels,
+that 100 pixels will include any border or padding you added, and the content box will shrink
+to absorb that extra width. This typically makes it much easier to size elements.*/
+*,
+*::after,
+*::before {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: inherit;
+}
 
+/*set the root fontsize to 10px which is 62.5% of the default browser 16px
+
+defines what 1rem is*/
+html {
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+}
+
+body {
+	font-family: Times, Arial, serif;
+	font-size: 1.5rem;
+
+}
+ /*style image injected by feed json data*/
 img {
 	height: auto;
 	max-width: 100%
@@ -15,3 +44,92 @@ img {
 p img {
 	float: none;
 }
+
+/*remove some default button styles*/
+button {
+	font-size: 100%;
+	font-family: inherit;
+	border: 0;
+	padding: 0;
+	background-color: transparent;
+}
+
+/*remove default blue outline on click*/
+button:focus {
+	outline: none;
+}
+button:hover {
+	cursor: pointer;
+}
+
+/*dropdown sidebar menu styles*/
+
+/*select all nav UL elements*/
+.feedListUL, .dropDownUL {
+	width: 30vw;
+	list-style: none;
+	background-color: grey;
+}
+
+/*position the drop down list item relative to the
+  drop down unordered list so we can make the UL pull out
+  relative to the LI*/
+.dropDownLI {
+	position: relative;
+}
+
+.dropDownUL {
+	position: absolute;
+	top: 0;
+
+	visibility: hidden;
+	opacity: 0;
+	z-index: -1;
+	transform: translateX(-30vh);
+}
+
+.dropDownLI:focus .dropDownUL,
+.dropDownLI:focus-within .dropDownUL,
+.dropDownLI:hover .dropDownUL {
+	visibility: visible;
+	opacity: 1;
+	z-index: 1;
+	transform: translateX(30vw);
+}
+
+.dropDownBtn {
+	width: 75%;
+	padding: 10px;
+	text-align: center;
+}
+
+.dropDownLI:hover, .dropDownLI:focus-within {
+	background-color: green;
+}
+
+.dropDownBtn:hover, .dropDownBtn:focus {
+	background-color: green;
+}
+
+.feedBtn {
+	width: 75%;
+	padding: 10px;
+	text-align: center;
+}
+
+.feedBtn:hover, .feedBtn:focus {
+	background-color: green;
+}
+
+.deleteBtn {
+	width: 25%;
+	color: red;
+	text-align: right;
+	padding: 10px;
+}
+
+.deleteBtn:hover, .deleteBtn:focus {
+	background-color: green;
+}
+
+

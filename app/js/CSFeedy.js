@@ -354,7 +354,7 @@ function buildFeedButtons() {
 				deleteFeedButton.setAttribute('data-id', feedId);
 				deleteFeedButton.setAttribute('class', 'deleteBtn');
 				dropDownButtonItem.innerText = groupedAllFeeds[allCategories[i]][j].name;
-				deleteFeedButton.innerText = 'Delete This Feed';
+				deleteFeedButton.innerText = 'Delete';
 				dropDownListItem.appendChild(dropDownButtonItem);
 				dropDownListItem.appendChild(deleteFeedButton);
 				dropDownUL.appendChild(dropDownListItem);
@@ -392,7 +392,7 @@ function buildFeedButtons() {
 			deleteFeedButton.setAttribute('class', 'deleteBtn');
 
 			newButtonElement.innerText = groupedAllFeeds[allCategories[i]][0].name;
-			deleteFeedButton.innerText ='Delete This Feed';
+			deleteFeedButton.innerText ='Delete';
 
 			newListElement.appendChild(newButtonElement);
 			newListElement.appendChild(deleteFeedButton);
