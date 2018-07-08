@@ -5,6 +5,9 @@
  * @date    2018-06-28 07:37:19
  * @version 1.0
  */
+$Green: #BFF8C1;
+$Blue:  #1797B5;
+$Grey:	#CCCCCC;
 
  /*apply a browser reset * only selects element so must select psudo elemts as well
 apply border-box to make all elements account for any border and padding in the values
@@ -33,14 +36,13 @@ body {
 body {
 	font-family: Times, Arial, serif;
 	font-size: 1.5rem;
-	background-color: #BFF8C1;
+	background-color: $Green;
 
 }
  /*style image injected by feed json data*/
 img {
 	height: auto;
-	max-width: 100%
-
+	max-width: 100%;
 }
 
 p img {
@@ -88,8 +90,82 @@ button:hover {
 }
 /*form styles*/
 .feedForm {
-
 	width: 30vw;
+
+	fieldset {
+		padding: 10px 10px 15px 10px;
+		margin-bottom: 10px;
+	}
+
+	.feedinput {
+		width: 100%;
+		border: 1px solid black;
+		border-radius: 20px;
+		padding: 3px;
+		outline: none;
+
+		&:focus {
+			background-color: lightblue;
+		}
+	}
+	.formBtn1 {
+		background-color: $Blue;
+		border-radius: 20px;
+		padding: 5px;
+		margin-top: 10px;
+		display: block;
+		margin-left: auto;
+    	margin-right: auto;
+    	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+
+    	&:hover, &:focus {
+    		background-color: $Grey;
+    	}
+
+    	&:active {
+    		transform: translateY(3px);
+    	}
+
+	}
+
+	.formBtn2 {
+		background-color: $Blue;
+		border-radius: 20px;
+		padding: 5px;
+		margin: 10px 0px 15px 0px;
+		display: block;
+		box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+
+    	&:hover, &:focus {
+    		background-color: $Grey;
+    	}
+
+    	&:active {
+    		transform: translateY(3px);
+    	}
+
+	}
+
+	.inputfile {
+		width: 0.1px;
+		height: 0.1px;
+		opacity: 0;
+		overflow: hidden;
+		position: absolute;
+		z-index: -1;
+
+		& + label {
+			background-color: $Blue;
+			cursor: pointer;
+			padding: 5px;
+			border-radius: 20px;
+			box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+		}
+
+		&:focus + label, & + label:hover {
+			background-color: $Grey;
+		}
+	}
 }
 
 #rssOutput {
@@ -111,7 +187,7 @@ button:hover {
 .feedListUL, .dropDownUL {
 	width: 30vw;
 	list-style: none;
-	background-color: #1797B5;
+	background-color: $Blue;
 }
 
 /*position the drop down list item relative to the
@@ -147,11 +223,11 @@ button:hover {
 }
 
 .dropDownLI:hover, .dropDownLI:focus-within {
-	background-color: #CCCCCC;
+	background-color: $Grey;
 }
 
 .dropDownBtn:hover, .dropDownBtn:focus {
-	background-color: #CCCCCC;
+	background-color: $Grey;
 }
 
 .feedBtn {
@@ -161,7 +237,7 @@ button:hover {
 }
 
 .feedBtn:hover, .feedBtn:focus {
-	background-color: #CCCCCC;
+	background-color: $Grey;
 }
 
 .deleteBtn {
@@ -173,7 +249,7 @@ button:hover {
 }
 
 .deleteBtn:hover, .deleteBtn:focus {
-	background-color: #CCCCCC;
+	background-color: $Grey;
 }
 
 

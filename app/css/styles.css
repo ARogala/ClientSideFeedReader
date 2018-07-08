@@ -81,6 +81,61 @@ button:hover {
 /*form styles*/
 .feedForm {
   width: 30vw; }
+  .feedForm fieldset {
+    padding: 10px 10px 15px 10px;
+    margin-bottom: 10px; }
+  .feedForm .feedinput {
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 3px;
+    outline: none; }
+    .feedForm .feedinput:focus {
+      background-color: lightblue; }
+  .feedForm .formBtn1 {
+    background-color: #1797B5;
+    border-radius: 20px;
+    padding: 5px;
+    margin-top: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    -webkit-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
+    .feedForm .formBtn1:hover, .feedForm .formBtn1:focus {
+      background-color: #CCCCCC; }
+    .feedForm .formBtn1:active {
+      -webkit-transform: translateY(3px);
+              transform: translateY(3px); }
+  .feedForm .formBtn2 {
+    background-color: #1797B5;
+    border-radius: 20px;
+    padding: 5px;
+    margin: 10px 0px 15px 0px;
+    display: block;
+    -webkit-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
+    .feedForm .formBtn2:hover, .feedForm .formBtn2:focus {
+      background-color: #CCCCCC; }
+    .feedForm .formBtn2:active {
+      -webkit-transform: translateY(3px);
+              transform: translateY(3px); }
+  .feedForm .inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1; }
+    .feedForm .inputfile + label {
+      background-color: #1797B5;
+      cursor: pointer;
+      padding: 5px;
+      border-radius: 20px;
+      -webkit-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+              box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
+    .feedForm .inputfile:focus + label, .feedForm .inputfile + label:hover {
+      background-color: #CCCCCC; }
 
 #rssOutput {
   -webkit-box-ordinal-group: 2;
