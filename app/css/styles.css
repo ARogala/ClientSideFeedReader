@@ -55,12 +55,28 @@ button:focus {
 button:hover {
   cursor: pointer; }
 
+.title {
+  text-align: center;
+  margin: 10px; }
+
 .flexContainer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap; }
+
+.sideBar {
+  -webkit-box-ordinal-group: 1;
+      -ms-flex-order: 0;
+          order: 0;
+  margin: 10px 0px 10px 20px; }
+
+.sideMenu {
+  margin-bottom: 10px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px; }
 
 /*form styles*/
 .feedForm {
@@ -70,15 +86,20 @@ button:hover {
   -webkit-box-ordinal-group: 2;
       -ms-flex-order: 1;
           order: 1;
-  width: 60vw; }
+  width: 60vw;
+  margin-top: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
+  #rssOutput h1 {
+    text-align: center; }
 
 /*dropdown sidebar menu styles*/
 /*select all nav UL elements*/
 .feedListUL, .dropDownUL {
   width: 30vw;
   list-style: none;
-  background-color: #1797B5;
-  /*#9AE6F7*/ }
+  background-color: #1797B5; }
 
 /*position the drop down list item relative to the
   drop down unordered list so we can make the UL pull out
@@ -92,8 +113,8 @@ button:hover {
   visibility: hidden;
   opacity: 0;
   z-index: -1;
-  -webkit-transform: translateX(-30vh);
-          transform: translateX(-30vh); }
+  -webkit-transform: translateX(-30vw);
+          transform: translateX(-30vw); }
 
 .dropDownLI:focus .dropDownUL,
 .dropDownLI:focus-within .dropDownUL,
@@ -125,7 +146,8 @@ button:hover {
 
 .deleteBtn {
   width: 25%;
-  color: red;
+  color: #7D1717;
+  font-weight: bold;
   text-align: right;
   padding: 10px; }
 
