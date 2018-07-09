@@ -84,7 +84,7 @@ button:hover {
 .sideMenu {
 	margin-bottom: 10px;
 	position: sticky;
-	top: 0px;
+	top: 20px;
 
 
 }
@@ -95,6 +95,14 @@ button:hover {
 	fieldset {
 		padding: 10px 10px 15px 10px;
 		margin-bottom: 10px;
+		border: 1px solid black;
+		border-radius: 10px;
+	}
+
+	legend {
+		text-align: center;
+		font-weight: bold;
+		padding: 2px;
 	}
 
 	.feedinput {
