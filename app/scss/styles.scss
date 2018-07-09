@@ -103,6 +103,9 @@ button:hover {
 	}
 
 	&__dropDownUL {
+		max-height: 50vh;
+		overflow: auto;
+
 		position: absolute;
 		top: 0;
 

@@ -90,6 +90,8 @@ button:hover {
   .nav__dropDownLI {
     position: relative; }
   .nav__dropDownUL {
+    max-height: 50vh;
+    overflow: auto;
     position: absolute;
     top: 0;
     visibility: hidden;
