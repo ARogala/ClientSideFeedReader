@@ -115,6 +115,25 @@ function deleteSingleFeed(id) {
 	localStorage.setItem('allFeeds', JSON.stringify(allFeeds));
 	buildFeedButtons();
 }
+
+//add api key to localStorage
+const APIKeyBtn = document.getElementById('APIKey');
+
+APIKeyBtn.addEventListener('click', function() {
+	let APIKey = prompt('Please enter your API Key', 'abc123yourapikey');
+	let reWriteKey;
+	if(localStorage.getItem('APIKey') === null) {
+		localStorage.setItem('APIKey', JSON.stringify(APIKey));
+	}
+	else {
+		reWriteKey = confirm('CSFeedy detects an API Key would you like to over ride the current key?');
+	}
+	if(reWriteKey === true) {
+		localStorage.setItem('APIKey', JSON.stringify(APIKey));
+	}
+});
+
+
 /*
 	function to load feeds
 	Note: The readyState property holds the status of the XMLHttpRequest.
@@ -142,13 +161,13 @@ function loadFeed(id) {
 	content.innerHTML ='';
 	let xhr = new XMLHttpRequest();
 	let apiData = {
-        rss_url: url,
-        //api_key: 'abc123yourapikey',
-        count: 100,
-        order_by: 'pubDate'
-    };
+	    rss_url: url,
+	    api_key: JSON.parse(localStorage.getItem('APIKey')),
+	    count: 100,
+	    order_by: 'pubDate'
+	};
 
-    if(('api_key' in apiData) === true) {
+    if(apiData.api_key !== null) {
     	xhr.open(
 	        'GET',
 	        'https://api.rss2json.com/v1/api.json?rss_url='+apiData.rss_url+'&api_key='+
@@ -156,7 +175,7 @@ function loadFeed(id) {
 	        true
     	);
     }
-    else if(('api_key' in apiData) === false) {
+    else if(apiData.api_key === null) {
     	xhr.open(
 	        'GET',
 	        'https://api.rss2json.com/v1/api.json?rss_url='+apiData.rss_url,
