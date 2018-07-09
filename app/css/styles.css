@@ -66,6 +66,7 @@ button:hover {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap; }
 
+/*dropdown sidebar menu styles*/
 .sideBar {
   -webkit-box-ordinal-group: 1;
       -ms-flex-order: 0;
@@ -76,91 +77,13 @@ button:hover {
   margin-bottom: 10px;
   position: -webkit-sticky;
   position: sticky;
-  top: 20px; }
-
-/*form styles*/
-.feedForm {
-  width: 30vw; }
-  .feedForm fieldset {
-    padding: 10px 10px 15px 10px;
-    margin-bottom: 10px;
-    border: 1px solid black;
-    border-radius: 10px; }
-  .feedForm legend {
-    text-align: center;
-    font-weight: bold;
-    padding: 2px; }
-  .feedForm .feedinput {
-    width: 100%;
-    border: 1px solid black;
-    border-radius: 20px;
-    padding: 3px;
-    outline: none; }
-    .feedForm .feedinput:focus {
-      background-color: lightblue; }
-  .feedForm .formBtn1 {
-    background-color: #1797B5;
-    border-radius: 20px;
-    padding: 5px;
-    margin-top: 10px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    -webkit-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
-    .feedForm .formBtn1:hover, .feedForm .formBtn1:focus {
-      background-color: #CCCCCC; }
-    .feedForm .formBtn1:active {
-      -webkit-transform: translateY(3px);
-              transform: translateY(3px); }
-  .feedForm .formBtn2 {
-    background-color: #1797B5;
-    border-radius: 20px;
-    padding: 5px;
-    margin: 10px 0px 15px 0px;
-    display: block;
-    -webkit-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
-    .feedForm .formBtn2:hover, .feedForm .formBtn2:focus {
-      background-color: #CCCCCC; }
-    .feedForm .formBtn2:active {
-      -webkit-transform: translateY(3px);
-              transform: translateY(3px); }
-  .feedForm .inputfile {
-    width: 0.1px;
-    height: 0.1px;
-    opacity: 0;
-    overflow: hidden;
-    position: absolute;
-    z-index: -1; }
-    .feedForm .inputfile + label {
-      background-color: #1797B5;
-      cursor: pointer;
-      padding: 5px;
-      border-radius: 20px;
-      -webkit-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-              box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
-    .feedForm .inputfile:focus + label, .feedForm .inputfile + label:hover {
-      background-color: #CCCCCC; }
-
-#rssOutput {
-  -webkit-box-ordinal-group: 2;
-      -ms-flex-order: 1;
-          order: 1;
-  width: 60vw;
-  margin-top: 10px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto; }
-  #rssOutput h1 {
-    text-align: center; }
-
-/*dropdown sidebar menu styles*/
-/*select all nav UL elements*/
-.feedListUL, .dropDownUL {
-  width: 30vw;
-  list-style: none;
-  background-color: #1797B5; }
+  top: 20px;
+  /*select all nav UL elements*/ }
+  .sideMenu .feedListUL, .sideMenu .dropDownUL {
+    width: 30vw;
+    border-radius: 10px;
+    list-style: none;
+    background-color: #1797B5; }
 
 /*position the drop down list item relative to the
   drop down unordered list so we can make the UL pull out
@@ -214,3 +137,80 @@ button:hover {
 
 .deleteBtn:hover, .deleteBtn:focus {
   background-color: #CCCCCC; }
+
+/*form styles*/
+.feedForm {
+  width: 30vw; }
+  .feedForm fieldset {
+    padding: 10px 10px 15px 10px;
+    margin-bottom: 10px;
+    border: 1px solid black;
+    border-radius: 10px; }
+  .feedForm legend {
+    text-align: center;
+    font-weight: bold;
+    padding: 2px; }
+  .feedForm__input {
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 3px;
+    outline: none; }
+    .feedForm__input:focus {
+      background-color: lightblue; }
+  .feedForm__Btn1 {
+    background-color: #1797B5;
+    border-radius: 20px;
+    padding: 5px;
+    margin-top: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    -webkit-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
+    .feedForm__Btn1:hover, .feedForm__Btn1:focus {
+      background-color: #CCCCCC; }
+    .feedForm__Btn1:active {
+      -webkit-transform: translateY(3px);
+              transform: translateY(3px); }
+  .feedForm__Btn2 {
+    background-color: #1797B5;
+    border-radius: 20px;
+    padding: 5px;
+    margin: 10px 0px 15px 0px;
+    display: block;
+    -webkit-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
+    .feedForm__Btn2:hover, .feedForm__Btn2:focus {
+      background-color: #CCCCCC; }
+    .feedForm__Btn2:active {
+      -webkit-transform: translateY(3px);
+              transform: translateY(3px); }
+  .feedForm__input--file {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1; }
+    .feedForm__input--file + label {
+      background-color: #1797B5;
+      cursor: pointer;
+      padding: 5px;
+      border-radius: 20px;
+      -webkit-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+              box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
+    .feedForm__input--file:focus + label, .feedForm__input--file + label:hover {
+      background-color: #CCCCCC; }
+
+#rssOutput {
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+  width: 60vw;
+  margin-top: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
+  #rssOutput h1 {
+    text-align: center; }

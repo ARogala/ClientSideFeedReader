@@ -76,6 +76,7 @@ button:hover {
 	flex-wrap: wrap;
 }
 
+/*dropdown sidebar menu styles*/
 .sideBar {
 	order: 0;
 	margin: 10px 0px 10px 20px;
@@ -86,117 +87,19 @@ button:hover {
 	position: sticky;
 	top: 20px;
 
-
-}
-/*form styles*/
-.feedForm {
-	width: 30vw;
-
-	fieldset {
-		padding: 10px 10px 15px 10px;
-		margin-bottom: 10px;
-		border: 1px solid black;
+	/*select all nav UL elements*/
+	.feedListUL, .dropDownUL {
+		width: 30vw;
 		border-radius: 10px;
-	}
-
-	legend {
-		text-align: center;
-		font-weight: bold;
-		padding: 2px;
-	}
-
-	.feedinput {
-		width: 100%;
-		border: 1px solid black;
-		border-radius: 20px;
-		padding: 3px;
-		outline: none;
-
-		&:focus {
-			background-color: lightblue;
-		}
-	}
-	.formBtn1 {
+		list-style: none;
 		background-color: $Blue;
-		border-radius: 20px;
-		padding: 5px;
-		margin-top: 10px;
-		display: block;
-		margin-left: auto;
-    	margin-right: auto;
-    	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-
-    	&:hover, &:focus {
-    		background-color: $Grey;
-    	}
-
-    	&:active {
-    		transform: translateY(3px);
-    	}
-
 	}
 
-	.formBtn2 {
-		background-color: $Blue;
-		border-radius: 20px;
-		padding: 5px;
-		margin: 10px 0px 15px 0px;
-		display: block;
-		box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-
-    	&:hover, &:focus {
-    		background-color: $Grey;
-    	}
-
-    	&:active {
-    		transform: translateY(3px);
-    	}
-
-	}
-
-	.inputfile {
-		width: 0.1px;
-		height: 0.1px;
-		opacity: 0;
-		overflow: hidden;
-		position: absolute;
-		z-index: -1;
-
-		& + label {
-			background-color: $Blue;
-			cursor: pointer;
-			padding: 5px;
-			border-radius: 20px;
-			box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-		}
-
-		&:focus + label, & + label:hover {
-			background-color: $Grey;
-		}
-	}
 }
 
-#rssOutput {
-	order: 1;
-	width: 60vw;
-	margin-top: 10px;
-	display: block;
-    margin-left: auto;
-    margin-right: auto;
 
-    h1 {
-    	text-align: center;
-    }
-}
 
-/*dropdown sidebar menu styles*/
 
-/*select all nav UL elements*/
-.feedListUL, .dropDownUL {
-	width: 30vw;
-	list-style: none;
-	background-color: $Blue;
-}
 
 /*position the drop down list item relative to the
   drop down unordered list so we can make the UL pull out
@@ -258,6 +161,108 @@ button:hover {
 
 .deleteBtn:hover, .deleteBtn:focus {
 	background-color: $Grey;
+}
+
+/*form styles*/
+.feedForm {
+	width: 30vw;
+
+	fieldset {
+		padding: 10px 10px 15px 10px;
+		margin-bottom: 10px;
+		border: 1px solid black;
+		border-radius: 10px;
+	}
+
+	legend {
+		text-align: center;
+		font-weight: bold;
+		padding: 2px;
+	}
+
+	&__input {
+		width: 100%;
+		border: 1px solid black;
+		border-radius: 20px;
+		padding: 3px;
+		outline: none;
+
+		&:focus {
+			background-color: lightblue;
+		}
+	}
+
+	&__Btn1 {
+		background-color: $Blue;
+		border-radius: 20px;
+		padding: 5px;
+		margin-top: 10px;
+		display: block;
+		margin-left: auto;
+    	margin-right: auto;
+    	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+
+    	&:hover, &:focus {
+    		background-color: $Grey;
+    	}
+
+    	&:active {
+    		transform: translateY(3px);
+    	}
+
+	}
+
+	&__Btn2 {
+		background-color: $Blue;
+		border-radius: 20px;
+		padding: 5px;
+		margin: 10px 0px 15px 0px;
+		display: block;
+		box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+
+    	&:hover, &:focus {
+    		background-color: $Grey;
+    	}
+
+    	&:active {
+    		transform: translateY(3px);
+    	}
+
+	}
+
+	&__input--file {
+		width: 0.1px;
+		height: 0.1px;
+		opacity: 0;
+		overflow: hidden;
+		position: absolute;
+		z-index: -1;
+
+		& + label {
+			background-color: $Blue;
+			cursor: pointer;
+			padding: 5px;
+			border-radius: 20px;
+			box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+		}
+
+		&:focus + label, & + label:hover {
+			background-color: $Grey;
+		}
+	}
+}
+
+#rssOutput {
+	order: 1;
+	width: 60vw;
+	margin-top: 10px;
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+    h1 {
+    	text-align: center;
+    }
 }
 
 

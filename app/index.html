@@ -22,29 +22,29 @@
 						<legend>Enter RSS feed name, category, and url</legend>
 						<div>
 							<label for="name">Feed Name:</label>
-							<input type="text" id="name" name="feed_name" required class="feedinput">
+							<input type="text" id="name" name="feed_name" required class="feedForm__input">
 						</div>
 						<div>
 							<label for="category">Feed Category:</label>
-							<input type="text" id="category" name="feed_category" required class="feedinput">
+							<input type="text" id="category" name="feed_category" required class="feedForm__input">
 						</div>
 						<div>
 							<label for="url">Feed URL:</label>
-							<input type="url" id="url" name="feed_url" placeholder="http://example.com/feed" required class="feedinput">
+							<input type="url" id="url" name="feed_url" placeholder="http://example.com/feed" required class="feedForm__input">
 						</div>
 
 						<div class="btnContainer">
-							<button type="submit" value="Submit" class="formBtn1">Add Feed</button>
-							<button type="reset" value="Reset" class="formBtn1">Cancel</button>
+							<button type="submit" value="Submit" class="feedForm__Btn1">Add Feed</button>
+							<button type="reset" value="Reset" class="feedForm__Btn1">Cancel</button>
 						</div>
 					</fieldset>
 					<fieldset>
 						<legend>Back Up and Restore Your Feeds</legend>
 						<label for="backUpBtn">Click button below to backup your feeds</label>
-						<button type="button" id="backUpBtn" download class="formBtn2">Download Backup</button>
+						<button type="button" id="backUpBtn" download class="feedForm__Btn2">Download Backup</button>
 
-						<input type="file" id="backUpFile" name="feeds_backup" accept=".txt" class="inputfile">
-						<label for="backUpFile">To restore upload the CSFeedyBackUp.txt file</label>
+						<input type="file" id="backUpFile" name="feeds_backup" accept=".txt" class="feedForm__input--file">
+						<label for="backUpFile">Restore Feeds</label>
 					</fieldset>
 				</form>
 			</div>
