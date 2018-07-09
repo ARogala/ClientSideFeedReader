@@ -86,20 +86,15 @@ button:hover {
 	margin-bottom: 10px;
 	position: sticky;
 	top: 20px;
-
-	/*select all nav UL elements*/
-	.feedListUL, .dropDownUL {
-		width: 30vw;
-		border-radius: 10px;
-		list-style: none;
-		background-color: $Blue;
-	}
-
 }
 
-
-
-
+/*select all nav UL elements*/
+.feedListUL, .dropDownUL {
+	width: 30vw;
+	border-radius: 10px;
+	list-style: none;
+	background-color: $Blue;
+}
 
 /*position the drop down list item relative to the
   drop down unordered list so we can make the UL pull out
@@ -131,14 +126,17 @@ button:hover {
 	width: 75%;
 	padding: 10px;
 	text-align: center;
+
 }
 
 .dropDownLI:hover, .dropDownLI:focus-within {
 	background-color: $Grey;
+	border-radius: 10px;
 }
 
 .dropDownBtn:hover, .dropDownBtn:focus {
 	background-color: $Grey;
+	border-radius: 10px;
 }
 
 .feedBtn {
@@ -149,6 +147,7 @@ button:hover {
 
 .feedBtn:hover, .feedBtn:focus {
 	background-color: $Grey;
+	border-radius: 10px;
 }
 
 .deleteBtn {
@@ -161,6 +160,7 @@ button:hover {
 
 .deleteBtn:hover, .deleteBtn:focus {
 	background-color: $Grey;
+	border-radius: 10px;
 }
 
 /*form styles*/
