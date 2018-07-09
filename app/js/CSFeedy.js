@@ -9,6 +9,21 @@
 let allFeeds = JSON.parse(localStorage.getItem('allFeeds') || '[]');
 
 const formElement = document.getElementById('feedData');
+
+//toggle visibility of feed entry form and other settings
+formElement.style.display = 'none';
+const toggleBtn = document.getElementById('formToggle');
+
+toggleBtn.addEventListener('click', function() {
+	if(formElement.style.display === 'none') {
+		formElement.style.display = 'block';
+	}
+	else {
+		formElement.style.display = 'none';
+	}
+});
+
+
 let feedName, feedCategory, feedURL;
 //when the Add Feed button in clicked get the inputs and save the data
 formElement.addEventListener('submit', function(e) {
