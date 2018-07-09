@@ -73,75 +73,64 @@ button:hover {
           order: 0;
   margin: 10px 0px 10px 20px; }
 
-.sideMenu {
+.nav {
   margin-bottom: 10px;
   position: -webkit-sticky;
   position: sticky;
-  top: 20px; }
-
-/*select all nav UL elements*/
-.feedListUL, .dropDownUL {
-  width: 30vw;
-  border-radius: 10px;
-  list-style: none;
-  background-color: #1797B5; }
-
-/*position the drop down list item relative to the
-  drop down unordered list so we can make the UL pull out
-  relative to the LI*/
-.dropDownLI {
-  position: relative; }
-
-.dropDownUL {
-  position: absolute;
-  top: 0;
-  visibility: hidden;
-  opacity: 0;
-  z-index: -1;
-  -webkit-transform: translateX(-30vw);
-          transform: translateX(-30vw); }
-
-.dropDownLI:focus .dropDownUL,
-.dropDownLI:focus-within .dropDownUL,
-.dropDownLI:hover .dropDownUL {
-  visibility: visible;
-  opacity: 1;
-  z-index: 1;
-  -webkit-transform: translateX(30vw);
-          transform: translateX(30vw); }
-
-.dropDownBtn {
-  width: 75%;
-  padding: 10px;
-  text-align: center; }
-
-.dropDownLI:hover, .dropDownLI:focus-within {
-  background-color: #CCCCCC;
-  border-radius: 10px; }
-
-.dropDownBtn:hover, .dropDownBtn:focus {
-  background-color: #CCCCCC;
-  border-radius: 10px; }
-
-.feedBtn {
-  width: 75%;
-  padding: 10px;
-  text-align: center; }
-
-.feedBtn:hover, .feedBtn:focus {
-  background-color: #CCCCCC;
-  border-radius: 10px; }
-
-.deleteBtn {
-  width: 25%;
-  color: #7D1717;
-  font-weight: bold;
-  text-align: right;
-  padding: 10px; }
-
-.deleteBtn:hover, .deleteBtn:focus {
-  background-color: #CCCCCC;
-  border-radius: 10px; }
+  top: 20px;
+  /*select all nav UL elements*/
+  /*position the drop down list item relative to the
+	drop down unordered list so we can make the UL pull out
+	relative to the LI*/ }
+  .nav__feedListUL, .nav__dropDownUL {
+    width: 30vw;
+    border-radius: 10px;
+    list-style: none;
+    background-color: #1797B5; }
+  .nav__dropDownLI {
+    position: relative; }
+  .nav__dropDownUL {
+    position: absolute;
+    top: 0;
+    visibility: hidden;
+    opacity: 0;
+    z-index: -1;
+    -webkit-transform: translateX(-30vw);
+            transform: translateX(-30vw); }
+  .nav__dropDownLI:focus .nav__dropDownUL,
+  .nav__dropDownLI:focus-within .nav__dropDownUL,
+  .nav__dropDownLI:hover .nav__dropDownUL {
+    visibility: visible;
+    opacity: 1;
+    z-index: 1;
+    -webkit-transform: translateX(30vw);
+            transform: translateX(30vw); }
+  .nav__dropDownBtn {
+    width: 75%;
+    padding: 10px;
+    text-align: center; }
+  .nav__dropDownLI:hover, .nav__dropDownLI:focus-within {
+    background-color: #CCCCCC;
+    border-radius: 10px; }
+  .nav__dropDownBtn:hover, .nav__dropDownBtn:focus {
+    background-color: #CCCCCC;
+    border-radius: 10px; }
+  .nav__feedBtn {
+    width: 75%;
+    padding: 10px;
+    text-align: center; }
+  .nav__feedBtn:hover, .nav__feedBtn:focus {
+    background-color: #CCCCCC;
+    border-radius: 10px; }
+  .nav__deleteBtn {
+    width: 25%;
+    color: #7D1717;
+    font-weight: bold;
+    text-align: right;
+    padding: 10px; }
+  .nav__deleteBtn:hover, .nav__deleteBtn:focus {
+    background-color: #CCCCCC;
+    border-radius: 10px; }
 
 /*form styles*/
 .feedForm {

@@ -366,12 +366,12 @@ function buildFeedButtons() {
 			const dropDownList = document.createElement('li');
 			const dropDownButton = document.createElement('button');
 			const dropDownUL = document.createElement('ul');
-			dropDownList.setAttribute('class', 'dropDownLI');
+			dropDownList.setAttribute('class', 'nav__dropDownLI');
 			dropDownButton.setAttribute('aria-haspopup', true);
-			dropDownButton.setAttribute('class', 'dropDownBtn');
+			dropDownButton.setAttribute('class', 'nav__dropDownBtn');
 			dropDownButton.innerText = allCategories[i];
 			dropDownUL.setAttribute('aria-label', 'submenu');
-			dropDownUL.setAttribute('class', 'dropDownUL');
+			dropDownUL.setAttribute('class', 'nav__dropDownUL');
 
 			dropDownList.appendChild(dropDownButton);
 			dropDownList.appendChild(dropDownUL);
@@ -382,11 +382,11 @@ function buildFeedButtons() {
 				const dropDownButtonItem = document.createElement('button');
 				const deleteFeedButton = document.createElement('button');
 
-				dropDownListItem.setAttribute('class', 'feedLI');
+				dropDownListItem.setAttribute('class', 'nav__feedLI');
 				dropDownButtonItem.setAttribute('data-id', feedId);
-				dropDownButtonItem.setAttribute('class', 'feedBtn');
+				dropDownButtonItem.setAttribute('class', 'nav__feedBtn');
 				deleteFeedButton.setAttribute('data-id', feedId);
-				deleteFeedButton.setAttribute('class', 'deleteBtn');
+				deleteFeedButton.setAttribute('class', 'nav__deleteBtn');
 				dropDownButtonItem.innerText = groupedAllFeeds[allCategories[i]][j].name;
 				deleteFeedButton.innerText = 'Delete';
 				dropDownListItem.appendChild(dropDownButtonItem);
@@ -419,11 +419,11 @@ function buildFeedButtons() {
 			const newButtonElement = document.createElement('button');
 			const deleteFeedButton = document.createElement('button');
 
-			newListElement.setAttribute('class', 'feedLI');
+			newListElement.setAttribute('class', 'nav__feedLI');
 			newButtonElement.setAttribute('data-id', feedId);
-			newButtonElement.setAttribute('class', 'feedBtn');
+			newButtonElement.setAttribute('class', 'nav__feedBtn');
 			deleteFeedButton.setAttribute('data-id', feedId);
-			deleteFeedButton.setAttribute('class', 'deleteBtn');
+			deleteFeedButton.setAttribute('class', 'nav__deleteBtn');
 
 			newButtonElement.innerText = groupedAllFeeds[allCategories[i]][0].name;
 			deleteFeedButton.innerText ='Delete';
@@ -460,10 +460,10 @@ function buildFeedButtons() {
 	feedList.addEventListener('click', function(e) {
 		//console.log(e.target.tagName);
 		//console.log(e.target.className);
-		if(e.target.tagName === 'BUTTON' && e.target.className === 'feedBtn') {
+		if(e.target.tagName === 'BUTTON' && e.target.className === 'nav__feedBtn') {
 			loadFeed(e.target.dataset.id);
 		}
-		else if(e.target.tagName === 'BUTTON' && e.target.className === 'deleteBtn') {
+		else if(e.target.tagName === 'BUTTON' && e.target.className === 'nav__deleteBtn') {
 			deleteSingleFeed(e.target.dataset.id);
 		}
 	});

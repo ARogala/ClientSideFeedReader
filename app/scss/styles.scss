@@ -82,85 +82,84 @@ button:hover {
 	margin: 10px 0px 10px 20px;
 }
 
-.sideMenu {
+.nav {
 	margin-bottom: 10px;
 	position: sticky;
 	top: 20px;
-}
 
-/*select all nav UL elements*/
-.feedListUL, .dropDownUL {
-	width: 30vw;
-	border-radius: 10px;
-	list-style: none;
-	background-color: $Blue;
-}
+	/*select all nav UL elements*/
+	&__feedListUL, &__dropDownUL {
+		width: 30vw;
+		border-radius: 10px;
+		list-style: none;
+		background-color: $Blue;
+	}
 
-/*position the drop down list item relative to the
-  drop down unordered list so we can make the UL pull out
-  relative to the LI*/
-.dropDownLI {
-	position: relative;
-}
+	/*position the drop down list item relative to the
+	drop down unordered list so we can make the UL pull out
+	relative to the LI*/
+	&__dropDownLI {
+		position: relative;
+	}
 
-.dropDownUL {
-	position: absolute;
-	top: 0;
+	&__dropDownUL {
+		position: absolute;
+		top: 0;
 
-	visibility: hidden;
-	opacity: 0;
-	z-index: -1;
-	transform: translateX(-30vw);
-}
+		visibility: hidden;
+		opacity: 0;
+		z-index: -1;
+		transform: translateX(-30vw);
+	}
 
-.dropDownLI:focus .dropDownUL,
-.dropDownLI:focus-within .dropDownUL,
-.dropDownLI:hover .dropDownUL {
-	visibility: visible;
-	opacity: 1;
-	z-index: 1;
-	transform: translateX(30vw);
-}
+	&__dropDownLI:focus &__dropDownUL,
+	&__dropDownLI:focus-within &__dropDownUL,
+	&__dropDownLI:hover &__dropDownUL {
+		visibility: visible;
+		opacity: 1;
+		z-index: 1;
+		transform: translateX(30vw);
+	}
 
-.dropDownBtn {
-	width: 75%;
-	padding: 10px;
-	text-align: center;
+	&__dropDownBtn {
+		width: 75%;
+		padding: 10px;
+		text-align: center;
+	}
 
-}
+	&__dropDownLI:hover, &__dropDownLI:focus-within {
+		background-color: $Grey;
+		border-radius: 10px;
+	}
 
-.dropDownLI:hover, .dropDownLI:focus-within {
-	background-color: $Grey;
-	border-radius: 10px;
-}
+	&__dropDownBtn:hover, &__dropDownBtn:focus {
+		background-color: $Grey;
+		border-radius: 10px;
+	}
 
-.dropDownBtn:hover, .dropDownBtn:focus {
-	background-color: $Grey;
-	border-radius: 10px;
-}
+	&__feedBtn {
+		width: 75%;
+		padding: 10px;
+		text-align: center;
+	}
 
-.feedBtn {
-	width: 75%;
-	padding: 10px;
-	text-align: center;
-}
+	&__feedBtn:hover, &__feedBtn:focus {
+		background-color: $Grey;
+		border-radius: 10px;
+	}
 
-.feedBtn:hover, .feedBtn:focus {
-	background-color: $Grey;
-	border-radius: 10px;
-}
+	&__deleteBtn {
+		width: 25%;
+		color: #7D1717;
+		font-weight: bold;
+		text-align: right;
+		padding: 10px;
+	}
 
-.deleteBtn {
-	width: 25%;
-	color: #7D1717;
-	font-weight: bold;
-	text-align: right;
-	padding: 10px;
-}
-
-.deleteBtn:hover, .deleteBtn:focus {
-	background-color: $Grey;
-	border-radius: 10px;
+	&__deleteBtn:hover, &__deleteBtn:focus {
+		background-color: $Grey;
+		border-radius: 10px;
+	}
 }
 
 /*form styles*/
