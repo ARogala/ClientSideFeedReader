@@ -15,11 +15,14 @@ formElement.style.display = 'none';
 const toggleBtn = document.getElementById('formToggle');
 
 toggleBtn.addEventListener('click', function() {
+	const navElement = document.getElementById('nav');
 	if(formElement.style.display === 'none') {
 		formElement.style.display = 'block';
+		navElement.style.display = 'none';
 	}
 	else {
 		formElement.style.display = 'none';
+		navElement.style.display = 'block';
 	}
 });
 
