@@ -18,11 +18,12 @@ If a key is being used there are only 50 feeds available. Also make sure to unch
 
 I am looking into ways to drop the use of the API and process the RSS feeds on the client’s browser thus making this app 100% client side and removing any risk associated with storing the API key on the client browser. I think https://www.npmjs.com/package/rss-parser is a possible solution. This would complete the goal of having a feed reader app that runs entirely client side with no need to sign up for any service!!
 
-Overall this whole project proved to be challenging, very interesting, and even distracting as I spent too much time on reddit RSS feeds. Below is a brief description of two interesting parts of the project.
+Overall this project proved to be challenging, very interesting, and even distracting as I spent too much time on reddit RSS feeds. Below is a brief description of two interesting parts of the project.
 
-The RSS feed menu dynamically sorts and builds the feed buttons from the array of objects stored in local storage. See buildFeedButtons() function in the code.
+The RSS feed menu is generated dynamically by sorting and building the feed buttons from the array of objects stored in local storage. See buildFeedButtons() function in the code.
 
 Backing up and restoring the local storage session was another interesting and challenging part of this project and after experimenting and getting a proof of concept with the JSZip API at https://stuk.github.io/jszip/ I actually decided to go with a native JavaScript File API solution instead as I felt for a small project I wanted to limit libraries. It was tough seeking out information on backing up and restoring local storage as a text file but I knew it could be done so I did not quit. See backUpFeeds() and restoreFeeds() functions in the code.
+
 
 ## Instructions
 
