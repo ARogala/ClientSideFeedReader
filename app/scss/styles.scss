@@ -94,6 +94,24 @@ button:hover {
 .title {
 	text-align: center;
 	margin: 10px;
+	display: inline-block;
+	width: 80vw;
+}
+
+.formToggle {
+	background-color: $Blue;
+	border-radius: 20px;
+	padding: 5px;
+	margin-left: 20px;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+
+	&:hover, &:focus {
+		background-color: $Grey;
+	}
+
+	&:active {
+		transform: translateY(3px);
+	}
 }
 
 .flexContainer {
