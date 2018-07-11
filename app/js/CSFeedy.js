@@ -26,7 +26,29 @@ toggleBtn.addEventListener('click', function() {
 	}
 });
 
+//scroll to top button
+const scrollBtn = document.getElementById('scrollTop');
 
+//display and hide button at break points
+window.onscroll = function() {
+	displayHideScrollBtn();
+};
+
+function displayHideScrollBtn() {
+	 if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+        scrollBtn.style.display = 'block';
+    } else {
+        scrollBtn.style.display = 'none';
+    }
+}
+
+//on click scroll to top
+scrollBtn.addEventListener('click', function() {
+	document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+});
+
+//save feeds to local storage
 let feedName, feedCategory, feedURL;
 //when the Add Feed button in clicked get the inputs and save the data
 formElement.addEventListener('submit', function(e) {

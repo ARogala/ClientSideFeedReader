@@ -260,3 +260,18 @@ button:hover {
   margin-right: auto; }
   #rssOutput h1 {
     text-align: center; }
+
+.scrollTop {
+  background-color: #1797B5;
+  border-radius: 20px;
+  padding: 5px;
+  -webkit-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+          box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  position: fixed;
+  bottom: 20px;
+  left: 20px; }
+  .scrollTop:hover, .scrollTop:focus {
+    background-color: #CCCCCC; }
+  .scrollTop:active {
+    -webkit-transform: translateY(3px);
+            transform: translateY(3px); }
