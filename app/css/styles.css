@@ -60,6 +60,10 @@ img {
 p img {
   float: none; }
 
+video {
+  position: relative;
+  z-index: -2; }
+
 /*remove some default button styles*/
 button {
   font-size: 100%;
